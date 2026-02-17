@@ -1,8 +1,13 @@
 package com.example.offlinesyncnoteapp.presentation
 
+import android.content.Context
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import com.example.offlinesyncnoteapp.core.AppResult
+import com.example.offlinesyncnoteapp.core.worker.NoteSyncWorker
 import com.example.offlinesyncnoteapp.domain.repository.NoteRepository
 import com.example.offlinesyncnoteapp.presentation.notes.NotesContract
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -29,6 +34,10 @@ class NotesViewmodel(
 
     }
 
+    init {
+        observeNotes()
+    }
+
 
     private fun observeNotes() {
 
@@ -39,7 +48,7 @@ class NotesViewmodel(
                 _state.update {
                     it.copy(notes = notes)
                 }
-
+                Log.d("Notes", "observeNotes $notes")
             }
 
         }
@@ -64,6 +73,21 @@ class NotesViewmodel(
 
                 }
             }
+
+        }
+
+    }
+
+    fun debugRunSync(context: Context) {
+
+        viewModelScope.launch {
+
+            val request =
+                OneTimeWorkRequestBuilder<NoteSyncWorker>()
+                    .build()
+
+            WorkManager.getInstance(context)
+                .enqueue(request)
 
         }
 

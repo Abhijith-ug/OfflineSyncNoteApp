@@ -10,5 +10,7 @@ data class NoteEntity(
     val title :String,
     val content : String,
     val createdAt : Long,
-    val syncState : String
+    val syncState : String,
+    val retryCount : Int,
+    val lastRetryTime: Long
 )

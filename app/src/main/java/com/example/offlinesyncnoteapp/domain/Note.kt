@@ -5,5 +5,7 @@ data class Note(
     val title : String,
     val content : String,
     val createdAt : Long,
-    val syncState : SyncState
+    val syncState : SyncState,
+    val retryCount : Int,
+    val lastRetryTime: Long
 )

@@ -10,7 +10,10 @@ fun NoteEntity.toDomain(): Note {
         title = title,
         content = content,
         createdAt = createdAt,
-        syncState = SyncState.valueOf(syncState)
+        syncState = SyncState.valueOf(syncState),
+        retryCount = retryCount,
+        lastRetryTime = lastRetryTime
+
     )
 }
 
@@ -20,6 +23,8 @@ fun Note.toEntity(): NoteEntity {
         title = title,
         content = content,
         createdAt = createdAt,
-        syncState = syncState.name
+        syncState = syncState.name,
+        retryCount = retryCount,
+        lastRetryTime = lastRetryTime
     )
 }

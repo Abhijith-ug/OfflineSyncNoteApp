@@ -16,4 +16,13 @@ interface NoteDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(note: NoteEntity)
 
+    @Query("SELECT * FROM notes WHERE syncState = 'PENDING'")
+    suspend fun getPendingNotes(): List<NoteEntity>
+
+    @Query("UPDATE notes SET syncState = :state WHERE id = :noteId")
+    suspend fun updateSyncState(noteId: String, state: String)
+
+    @Query("SELECT * FROM notes WHERE syncState = 'FAILED'")
+    suspend fun getFailedNotes(): List<NoteEntity>
+
 }
