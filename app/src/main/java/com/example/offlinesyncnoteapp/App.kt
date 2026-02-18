@@ -2,6 +2,7 @@ package com.example.offlinesyncnoteapp
 
 import android.app.Application
 import com.example.offlinesyncnoteapp.core.di.AppContainer
+import com.example.offlinesyncnoteapp.core.worker.PeriodicSynSchedular
 import com.example.offlinesyncnoteapp.data.local.DatabaseProvider
 import com.example.offlinesyncnoteapp.data.repository.NoteRepositoryImpl
 
@@ -13,5 +14,12 @@ class App : Application() {
 
         AppContainer.noteRepository =
             NoteRepositoryImpl(db.noteDao(),this)
+        setupPeriodicSync()
+
+    }
+
+
+    private fun setupPeriodicSync() {
+        PeriodicSynSchedular.schedulePeriodicSync(this)
     }
 }

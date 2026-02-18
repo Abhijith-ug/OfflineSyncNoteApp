@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-//    alias(libs.plugins.google.services)
+    alias(libs.plugins.google.services)
     alias(libs.plugins.ksp)
 }
 
@@ -61,7 +61,7 @@ dependencies {
 
 
     // Firebase
-//    implementation(libs.firebase.messaging.ktx)
+    implementation(libs.firebase.messaging.ktx)
 
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)

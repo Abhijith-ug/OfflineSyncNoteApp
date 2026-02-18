@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1065743743113",
+    "project_id": "offlinesyncnote",
+    "storage_bucket": "offlinesyncnote.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1065743743113:android:28441deecf7a83e77cee58",
+        "android_client_info": {
+          "package_name": "com.example.offlinesyncnoteapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDHXJH0cTsVf1YfBg1M-vBZDJb_5zNFy0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
